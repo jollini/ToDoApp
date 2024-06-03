@@ -8,12 +8,21 @@ const toDoStore = useToDoStore()
 
 <template>
     <VContainer v-if="toDoStore.type=='all' ">
-        <ToDo v-for="td in toDoStore.toDoList" :key="td.id" :to-do="td"></ToDo>
+        <div v-for="td in toDoStore.toDoList" :key="td.id">
+            <ToDo :to-do="td" class="py-4"></ToDo>
+            <VDivider></VDivider>
+        </div>
     </VContainer>
     <VContainer v-if="toDoStore.type=='active' ">
-        <ToDo v-for="td in toDoStore.activeToDoList" :key="td.id" :to-do="td"></ToDo>
+        <div v-for="td in toDoStore.activeToDoList" :key="td.id">
+            <ToDo :to-do="td" class="py-4"></ToDo>
+            <VDivider></VDivider>
+        </div>
     </VContainer>
     <VContainer v-if="toDoStore.type=='completed' ">
-        <ToDo v-for="td in toDoStore.completedToDoList" :key="td.id" :to-do="td"></ToDo>
+        <div v-for="td in toDoStore.completedToDoList" :key="td.id">
+            <ToDo :to-do="td" class="py-4"></ToDo>
+            <VDivider></VDivider>
+        </div>
     </VContainer>
 </template>
