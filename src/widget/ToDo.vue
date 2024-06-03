@@ -19,8 +19,11 @@ watch(done, () => {
 
 <template>
     <VRow align-content="center">
-        <VCheckbox v-model="done" hide-details class="pr-2"></VCheckbox>
-        <v-label :text="props.toDo.text" :class="done ? 'doneToDoStyle' : null" ></v-label>
+        <VCheckbox v-model="done" hide-details class="pr-2" true-icon="mdi-check-circle"
+            false-icon="mdi-checkbox-blank-circle-outline"
+            >
+        </VCheckbox>
+        <v-label :text="props.toDo.text" :class="done ? 'doneToDoStyle' : null"></v-label>
     </VRow>
 </template>
 
