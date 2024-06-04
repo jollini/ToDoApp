@@ -1,7 +1,7 @@
 import 'vuetify/styles';
 import App from "./App.vue";
 import { createApp } from "vue";
-import vuetify from "./plugin/vuetify";
+import vuetify from "./plugins/vuetify";
 import { createPinia } from 'pinia';
 
 // Create vue app
