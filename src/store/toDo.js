@@ -8,20 +8,20 @@ export const useToDoStore = defineStore("toDo", () => {
   const selectedToDoListCount = computed(() => {
     let count = 0;
     if (type.value == "all") {
-      count = toDoList.value.length 
+      count = toDoList.value.length;
     } else if (type.value == "active") {
-      count = activeToDoList.value.length 
+      count = activeToDoList.value.length;
     } else {
-      count = completedToDoList.value.length 
+      count = completedToDoList.value.length;
     }
-    return count
-  })
+    return count;
+  });
 
   const activeToDoList = computed(() =>
-    toDoList.value.filter((item) => item.done == false)
+    toDoList.value.filter((item) => item.done == false),
   );
   const completedToDoList = computed(() =>
-    toDoList.value.filter((item) => item.done == true)
+    toDoList.value.filter((item) => item.done == true),
   );
 
   const addTodo = (newTodoText) => {
@@ -35,7 +35,7 @@ export const useToDoStore = defineStore("toDo", () => {
 
   const updateTodo = (toDoId, done) => {
     const toDoToUpdateIndex = toDoList.value.findIndex(
-      (item) => item.id == toDoId
+      (item) => item.id == toDoId,
     );
     toDoList.value[toDoToUpdateIndex].done = done;
   };
