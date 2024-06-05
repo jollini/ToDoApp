@@ -14,12 +14,14 @@ const addTodoAndClearTextField = () => {
 </script>
 
 <template>
-  <VCard>
-    <VRow>
+  <VCard class="ma-0 py-1">
+    <VRow class="ma-0">
       <VCheckbox
+        class="px-4"
         :disabled="true"
         true-icon="mdi-check-circle"
         false-icon="mdi-checkbox-blank-circle-outline"
+        hide-details
       />
 
       <VTextField
@@ -27,7 +29,7 @@ const addTodoAndClearTextField = () => {
         placeholder="Create a new todo..."
         :rules="[(value) => !!value || 'Required.']"
         variant="plain"
-        hide-details="auto"
+        hide-details
         @keyup.enter="addTodoAndClearTextField"
       />
     </VRow>

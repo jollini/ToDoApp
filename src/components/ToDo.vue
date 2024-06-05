@@ -18,11 +18,14 @@ watch(done, () => {
 </script>
 
 <template>
-  <VRow align-content="center">
+  <VRow
+    align-content="center"
+    class="ma-0"
+  >
     <VCheckbox
       v-model="done"
       hide-details
-      class="pr-2"
+      class="px-4"
       true-icon="mdi-check-circle"
       false-icon="mdi-checkbox-blank-circle-outline"
     />

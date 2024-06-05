@@ -49,10 +49,21 @@ function changeImage() {
             @click="toggleTheme"
           >
             <VIcon
+              v-if="theme.global.name.value == 'dark'"
               aria-hidden="false"
               :size="24"
+              color="white"
             >
               mdi-white-balance-sunny
+            </VIcon>
+            <VIcon
+              v-else
+              aria-hidden="false"
+              :size="24"
+              color="white"
+              class="moon-icon-rotated"
+            >
+              mdi-moon-waning-crescent
             </VIcon>
           </VBtn>
         </VRow>
@@ -60,44 +71,59 @@ function changeImage() {
 
       <VContainer class="pa-4" />
 
-      <ToDoEdit class="pa-4" />
+      <ToDoEdit />
     </VCard>
 
     <VContainer class="pa-4" />
 
     <VCard
       max-width="680"
-      class="mx-auto pa-4"
+      class="mx-auto"
       flat
     >
       <ToDoList />
-      <VCardActions>
-        <VRow>
-          <VCol cols="4">
-            {{ toDoStore.selectedToDoListCount }} items left
+      <VCardActions class="actions">
+        <VRow class="px-4">
+          <VCol
+            cols="4"
+            align-self="center"
+          >
+            <VLabel :text="toDoStore.selectedToDoListCount + ' items left'" />
           </VCol>
-          <VCol cols="4">
-            <VBtn
-              :active="toDoStore.type == 'all'"
+          <VCol
+            cols="4"
+            align-self="center"
+            class="d-flex justify-center"
+          >
+            <VLabel
+              :class="toDoStore.type == 'all' ? 'selected-type px-1' : 'px-1'"
+              text="All"
               @click="toDoStore.changeType('all')"
-            >
-              All
-            </VBtn>
-            <VBtn
-              :active="toDoStore.type == 'active'"
+            />
+            <VLabel
+              :class="
+                toDoStore.type == 'active' ? 'selected-type px-1' : 'px-1'
+              "
+              text="Active"
               @click="toDoStore.changeType('active')"
-            >
-              Active
-            </VBtn>
-            <VBtn
-              :active="toDoStore.type == 'completed'"
+            />
+            <VLabel
+              :class="
+                toDoStore.type == 'completed' ? 'selected-type px-1' : 'px-1'
+              "
+              text="Completed"
               @click="toDoStore.changeType('completed')"
-            >
-              Completed
-            </VBtn>
+            />
           </VCol>
-          <VCol cols="4">
-            <VBtn @click="toDoStore.clearCompleted"> Clear Completed </VBtn>
+          <VCol
+            cols="4"
+            align-self="center"
+            class="d-flex justify-end"
+          >
+            <VLabel
+              text="Clear Completed "
+              @click="toDoStore.clearCompleted"
+            />
           </VCol>
         </VRow>
         <!-- Drag and drop to reorder list -->
@@ -119,9 +145,25 @@ function changeImage() {
   letter-spacing: 1rem;
   font-weight: 600;
   font-size: 2.5rem;
+  color: white;
 }
 
 .todo-content {
-  margin-top: -18rem;
+  margin-top: -16rem;
+}
+
+.actions label.selected-type {
+  color: cornflowerblue;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.actions label {
+  font-size: small;
+  letter-spacing: 0.1rem;
+}
+
+.moon-icon-rotated {
+  transform: rotate(330deg);
 }
 </style>

@@ -1,9 +1,9 @@
 <script setup>
-import ToDoMainView from './pages/ToDoMainView.vue';
-import Footer from './components/ToDoFooter.vue';
+import ToDoMainView from "./pages/ToDoMainView.vue"
+import ToDoFooter from "./components/ToDoFooter.vue"
 </script>
 
 <template>
   <ToDoMainView />
-  <Footer />
+  <ToDoFooter />
 </template>
