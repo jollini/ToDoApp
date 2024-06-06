@@ -79,7 +79,6 @@ function changeImage() {
     <VCard
       max-width="680"
       class="mx-auto"
-      flat
     >
       <ToDoList />
       <VCardActions class="actions">

@@ -11,6 +11,7 @@ const props = defineProps({
 
 const toDoStore = useToDoStore()
 const done = ref(props.toDo.done)
+const isHovering = ref(false)
 
 watch(done, () => {
   toDoStore.updateTodo(props.toDo.id, done.value)
@@ -21,19 +22,43 @@ watch(done, () => {
   <VRow
     align-content="center"
     class="ma-0"
+    no-gutters
+    @mouseover="isHovering = true"
+    @mouseleave="isHovering = false"
   >
-    <VCheckbox
-      v-model="done"
-      hide-details
-      class="px-4"
-      true-icon="mdi-check-circle"
-      false-icon="mdi-checkbox-blank-circle-outline"
-    />
+    <VCol
+      align-self="center"
+      cols="1"
+    >
+      <VCheckbox
+        v-model="done"
+        hide-details
+        class="px-4"
+        true-icon="mdi-check-circle"
+        false-icon="mdi-checkbox-blank-circle-outline"
+      />
+    </VCol>
 
-    <VLabel
-      :text="props.toDo.text"
-      :class="done ? 'doneToDoStyle' : null"
-    />
+    <VCol align-self="center">
+      <VLabel
+        :text="props.toDo.text"
+        :class="done ? 'doneToDoStyle' : null"
+      />
+    </VCol>
+
+    <VCol
+      v-if="isHovering"
+      align-self="center"
+      cols="1"
+    >
+      <VBtn
+        flat
+        color="transparent"
+        @click="toDoStore.removeTodo(props.toDo.id)"
+      >
+        <VIcon :size="24"> mdi-close </VIcon>
+      </VBtn>
+    </VCol>
   </VRow>
 </template>
 

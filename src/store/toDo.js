@@ -42,6 +42,10 @@ export const useToDoStore = defineStore("toDo", () => {
     toDoList.value[toDoToUpdateIndex].done = done
   }
 
+  const removeTodo = (toDoId) => {
+    toDoList.value = toDoList.value.filter((toDo) => toDo.id != toDoId)
+  }
+
   const changeType = (newType) => {
     type.value = newType
   }
@@ -61,6 +65,7 @@ export const useToDoStore = defineStore("toDo", () => {
 
     addTodo,
     updateTodo,
+    removeTodo,
     changeType,
     clearCompleted,
   }
