@@ -78,7 +78,7 @@ function changeImage() {
 
     <VCard
       max-width="680"
-      class="mx-auto"
+      class="mx-auto elevation-20"
     >
       <ToDoList />
       <VCardActions class="actions">
@@ -129,7 +129,7 @@ function changeImage() {
       </VCardActions>
     </VCard>
   </div>
-  <VContainer class="pa-1" />
+  <VContainer class="pa-4" />
 </template>
 
 <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
