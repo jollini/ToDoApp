@@ -12,9 +12,11 @@ const props = defineProps({
 const toDoStore = useToDoStore()
 const done = ref(props.toDo.done)
 const isHovering = ref(false)
+const iconClassStyle = ref(done.value == true ? "styled-icon" : null)
 
 watch(done, () => {
   toDoStore.updateTodo(props.toDo.id, done.value)
+  iconClassStyle.value = done.value == true ? "styled-icon" : null
 })
 </script>
 
@@ -33,7 +35,7 @@ watch(done, () => {
       <VCheckbox
         v-model="done"
         hide-details
-        class="px-4"
+        :class="'px-4 ' + iconClassStyle"
         true-icon="mdi-check-circle"
         false-icon="mdi-checkbox-blank-circle-outline"
       />
