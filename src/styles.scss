@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+:root {
+  background: rgb(var(--v-theme-background));
+}
+
 .styled-icon .v-icon {
   background: linear-gradient(
     to right,
@@ -14,4 +18,10 @@
   );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+@media screen and (max-width: 750px) {
+  .main-card {
+    width: 90%;
+  }
 }

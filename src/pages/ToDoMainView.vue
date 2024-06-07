@@ -33,7 +33,7 @@ function changeImage() {
   <div class="todo-content">
     <VCard
       max-width="680"
-      class="mx-auto"
+      class="mx-auto main-card"
       flat
       color="transparent"
     >
@@ -78,7 +78,7 @@ function changeImage() {
 
     <VCard
       max-width="680"
-      class="mx-auto elevation-20"
+      class="mx-auto elevation-20 main-card"
     >
       <ToDoList />
       <VCardActions class="actions">
